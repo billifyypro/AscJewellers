@@ -3,592 +3,488 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASC JEWELLERS | Premium Collection</title>
-    <!-- FontAwesome for WhatsApp Icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Software Runner - Pro Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
     <style>
-        /* CSS: Luxury Theme (Black, Gold, White) */
-        :root {
-            --primary-bg: #0a0a0a;
-            --secondary-bg: #1a1a1a;
-            --gold: #D4AF37;
-            --gold-hover: #f1c40f;
-            --text-light: #f5f5f5;
-            --text-muted: #aaaaaa;
-        }
-
+        /* Base Reset & Styling */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            scroll-behavior: smooth;
+            font-family: 'Outfit', sans-serif;
         }
 
+        /* Deep Tech Animated Gradient Background */
         body {
-            background-color: var(--primary-bg);
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        /* Header */
-        header {
-            background-color: var(--secondary-bg);
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #333;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: var(--gold);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        nav a {
-            color: var(--text-light);
-            text-decoration: none;
-            margin-left: 30px;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--gold);
-        }
-
-        /* Live Rates Bar */
-        .live-rates-bar {
-            background-color: #111;
-            padding: 15px 20px;
+            background: #0f172a;
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+                radial-gradient(at 50% 0%, hsla(225,39%,30%,0.3) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, hsla(339,49%,30%,0.3) 0, transparent 50%);
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px;
-            border-bottom: 1px solid var(--gold);
-            flex-wrap: wrap;
-        }
-
-        .rate-input-group {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .rate-input-group label {
-            color: var(--gold);
-            font-weight: bold;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .rate-input-group input {
-            background: var(--primary-bg);
-            border: 1px solid #444;
-            color: var(--text-light);
-            padding: 8px 12px;
-            border-radius: 4px;
-            font-size: 16px;
-            width: 120px;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        .rate-input-group input:focus {
-            border-color: var(--gold);
-        }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 80px 20px;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=2000&auto=format&fit=crop') center/cover;
-            border-bottom: 2px solid var(--gold);
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
-            font-weight: 300;
-        }
-
-        .hero p {
-            color: var(--gold);
-            font-size: 18px;
-            letter-spacing: 2px;
-        }
-
-        /* Product Grid */
-        .container {
-            max-width: 1200px;
-            margin: 50px auto;
-            padding: 0 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 32px;
-            margin-bottom: 40px;
-            color: var(--gold);
-            font-weight: 300;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .product-card {
-            background-color: var(--secondary-bg);
-            border: 1px solid #333;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.15);
-            border-color: var(--gold);
-        }
-
-        .product-image-container {
-            width: 100%;
-            height: 300px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .product-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .product-card:hover .product-image {
-            transform: scale(1.05);
-        }
-
-        .image-indicator {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            background: rgba(0,0,0,0.8);
-            color: var(--gold);
-            padding: 4px 8px;
-            font-size: 12px;
-            border-radius: 4px;
-        }
-
-        .product-info {
             padding: 20px;
-            text-align: center;
-            position: relative;
+            color: #e2e8f0;
+            overflow: hidden; /* Prevents scroll during modal */
         }
 
-        .product-category {
-            color: var(--text-muted);
-            font-size: 12px;
+        /* Glassmorphism Wrapper (Untouched for UI Stability) */
+        .wrapper {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            width: 100%;
+            max-width: 480px;
+            border-radius: 24px;
+            padding: 40px 30px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: filter 0.3s ease;
+        }
+
+        .wrapper.blurred {
+            filter: blur(8px) brightness(0.7);
+        }
+
+        /* Subtle top glow line for the card */
+        .wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #3b82f6, #8b5cf6, transparent);
+        }
+
+        /* Header Styling */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            background: linear-gradient(to right, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 8px;
         }
 
-        .product-title {
-            font-size: 18px;
-            margin-bottom: 10px;
-            font-weight: 500;
+        header p {
+            font-size: 1rem;
+            color: #94a3b8;
+            font-weight: 300;
         }
 
-        .product-weight {
-            font-size: 12px;
-            color: var(--text-muted);
-            margin-bottom: 10px;
+        /* Options Container */
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
-        .product-price {
-            color: var(--gold);
-            font-size: 22px;
-            font-weight: bold;
+        /* Premium Dark Card */
+        .option-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 20px 24px;
+            border-radius: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
         }
 
-        /* Modal for Multiple Images & Zoom */
-        .modal {
-            display: none;
+        .option-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(139, 92, 246, 0.4);
+            box-shadow: 0 10px 30px -10px rgba(139, 92, 246, 0.3);
+            background: rgba(30, 41, 59, 0.8);
+        }
+
+        .option-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #f8fafc;
+            letter-spacing: 0.3px;
+        }
+
+        /* Futuristic Gradient Button */
+        .open-btn {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 24px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+            position: relative;
+            z-index: 2;
+            cursor: pointer;
+            border: none;
+        }
+
+        .open-btn:hover {
+            box-shadow: 0 6px 25px rgba(139, 92, 246, 0.6);
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+        }
+
+        /* Footer Accent */
+        .footer-note {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: #64748b;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .footer-note span {
+            color: #8b5cf6;
+            font-weight: 600;
+        }
+
+        /* =========================================
+           PRO OVERLAY & MODAL STYLES
+           ========================================= */
+        .overlay {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.95);
-            z-index: 1000;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
         }
 
-        .modal-content {
-            max-width: 90%;
-            max-height: 65vh;
-            overflow: hidden; /* Important for zoom effect */
-            border: 2px solid var(--gold);
-            border-radius: 4px;
-            position: relative;
-            cursor: crosshair;
+        .overlay.active {
+            opacity: 1;
+            pointer-events: all;
         }
 
-        .modal-content img {
-            max-width: 100%;
-            max-height: 65vh;
-            display: block;
-            transition: transform 0.2s ease; /* Smooth zoom transition */
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 40px;
-            color: var(--text-light);
-            font-size: 40px;
-            cursor: pointer;
-            transition: color 0.3s ease;
-            z-index: 1001;
-        }
-
-        .close-modal:hover {
-            color: var(--gold);
-        }
-
-        .modal-thumbnails {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-            overflow-x: auto;
-            max-width: 90%;
-            padding-bottom: 10px;
-        }
-
-        .modal-thumbnails img {
-            width: 70px;
-            height: 70px;
-            object-fit: cover;
-            cursor: pointer;
-            border: 2px solid transparent;
-            border-radius: 4px;
-            transition: border-color 0.3s, transform 0.3s;
-        }
-
-        .modal-thumbnails img:hover, .modal-thumbnails img.active {
-            border-color: var(--gold);
-            transform: scale(1.05);
-        }
-
-        .modal-details {
-            margin-top: 15px;
+        .modal {
+            background: rgba(30, 41, 59, 0.9);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
             text-align: center;
+            max-width: 400px;
+            width: 90%;
+            transform: translateY(20px) scale(0.95);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: none;
+        }
+
+        .modal.active {
+            display: block;
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+
+        /* Confirm Modal */
+        .modal h2 {
+            font-size: 1.5rem;
+            color: #f8fafc;
+            margin-bottom: 10px;
         }
         
-        /* Floating WhatsApp Button */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
+        .modal p {
+            color: #94a3b8;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .btn-cancel {
+            background: transparent;
+            color: #94a3b8;
+            border: 1px solid #475569;
+            padding: 10px 24px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-cancel:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: #f8fafc;
+        }
+
+        .btn-confirm {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
             color: #fff;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            transition: all 0.3s;
+        }
+
+        .btn-confirm:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+        }
+
+        /* Loading Spinner */
+        .loader {
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 30px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-            z-index: 999;
-            transition: transform 0.3s, background-color 0.3s;
-            text-decoration: none;
+            border: 4px solid rgba(139, 92, 246, 0.1);
+            border-top-color: #8b5cf6;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px auto;
         }
 
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            background-color: #1ebe57;
-            color: #fff;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--secondary-bg);
-            text-align: center;
-            padding: 30px;
-            border-top: 1px solid #333;
-            margin-top: 50px;
-            color: var(--text-muted);
-            font-size: 14px;
+        .loading-text {
+            color: #60a5fa;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: pulse 1.5s ease-in-out infinite;
         }
 
-        @media (max-width: 768px) {
-            header { flex-direction: column; gap: 15px; }
-            nav a { margin: 0 10px; }
-            .rate-input-group input { width: 100px; }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* Animated Tick SVG */
+        .success-animation {
+            margin: 0 auto 15px auto;
+        }
+
+        .checkmark {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: block;
+            stroke-width: 3;
+            stroke: #10b981;
+            stroke-miterlimit: 10;
+            margin: 10% auto;
+            box-shadow: inset 0px 0px 0px #10b981;
+            animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+        }
+
+        .checkmark__circle {
+            stroke-dasharray: 166;
+            stroke-dashoffset: 166;
+            stroke-width: 3;
+            stroke-miterlimit: 10;
+            stroke: #10b981;
+            fill: none;
+            animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+        }
+
+        .checkmark__check {
+            transform-origin: 50% 50%;
+            stroke-dasharray: 48;
+            stroke-dashoffset: 48;
+            animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;
+        }
+
+        @keyframes stroke {
+            100% { stroke-dashoffset: 0; }
+        }
+
+        @keyframes scale {
+            0%, 100% { transform: none; }
+            50% { transform: scale3d(1.1, 1.1, 1); }
+        }
+
+        @keyframes fill {
+            100% { box-shadow: inset 0px 0px 0px 40px rgba(16, 185, 129, 0.1); }
+        }
+
+        .success-text {
+            color: #10b981;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">ASC JEWELLERS</div>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#collections">Collections</a>
-            <!-- Direct WhatsApp link in Navigation -->
-            <a href="https://wa.me/919026526053" target="_blank">Contact</a>
-        </nav>
-    </header>
+    <div class="wrapper" id="main-wrapper">
+        <header>
+            <h1>ASC Software</h1>
+            <p>Select a portal to launch</p>
+        </header>
 
-    <!-- Live Rates Calculator Bar -->
-    <div class="live-rates-bar">
-        <div class="rate-input-group">
-            <label for="goldRateInput">Gold Rate (/g): ₹</label>
-            <input type="number" id="goldRateInput" value="7000" oninput="updateRates()">
+        <div class="options-container">
+            
+            <div class="option-card">
+                <span class="option-title">Retail Software</span>
+                <button onclick="initiateLaunch('https://billifyypro.github.io/retailproasc/')" class="open-btn">Launch</button>
+            </div>
+
+            <div class="option-card">
+                <span class="option-title">Wholesale Software</span>
+                <button onclick="initiateLaunch('https://billifyypro.github.io/ascwholesale/')" class="open-btn">Launch</button>
+            </div>
+
         </div>
-        <div class="rate-input-group">
-            <label for="silverRateInput">Silver Rate (/g): ₹</label>
-            <input type="number" id="silverRateInput" value="85" oninput="updateRates()">
-        </div>
-    </div>
 
-    <section class="hero">
-        <h1>Elegance Defined</h1>
-        <p>Exclusive handcrafted luxury jewelry</p>
-    </section>
-
-    <div class="container" id="collections">
-        <h2 class="section-title">Our Collections</h2>
-        <div class="product-grid" id="product-grid"></div>
-    </div>
-
-    <!-- Enhanced Modal with Zoom Feature -->
-    <div class="modal" id="imageModal">
-        <span class="close-modal" onclick="closeModal()">&times;</span>
-        <div class="modal-content" id="modalImageWrapper">
-            <img id="mainModalImage" src="" alt="Jewelry">
-        </div>
-        <div class="modal-thumbnails" id="modalThumbnails"></div>
-        <div class="modal-details">
-            <h3 id="modalTitle" style="color: #fff; margin-bottom: 5px;"></h3>
-            <p id="modalWeight" style="color: var(--text-muted); font-size: 14px; margin-bottom: 5px;"></p>
-            <p id="modalPrice" style="color: var(--gold); font-weight: bold; font-size: 24px;"></p>
+        <div class="footer-note">
+            Powered by <span>Software Runner v1.0</span>
         </div>
     </div>
 
-    <!-- Professional Floating WhatsApp Button -->
-    <a href="https://wa.me/919026526053" class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <div class="overlay" id="overlay">
+        
+        <div class="modal" id="modal-confirm">
+            <h2>Launch Portal</h2>
+            <p>Are you sure you want to open this software module?</p>
+            <div class="btn-group">
+                <button class="btn-cancel" onclick="cancelLaunch()">No, Cancel</button>
+                <button class="btn-confirm" onclick="confirmLaunch()">Yes, Proceed</button>
+            </div>
+        </div>
 
-    <footer>
-        <p>&copy; 2026 ASC JEWELLERS. All Rights Reserved.</p>
-    </footer>
+        <div class="modal" id="modal-loading">
+            <div class="loader"></div>
+            <div class="loading-text">Initializing Systems...</div>
+        </div>
+
+        <div class="modal" id="modal-success">
+            <div class="success-animation">
+                <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                    <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                    <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                </svg>
+            </div>
+            <div class="success-text">Launched Successfully!</div>
+        </div>
+
+    </div>
 
     <script>
-        /* =========================================
-           PRODUCT DATA (With Weight & Material)
-           ========================================= */
-        const products = [
-            {
-                id: 1,
-                name: "Royal Diamond Necklace",
-                basePrice: 150000, 
-                material: "Diamond", // Doesn't use live rates
-                category: "Necklace",
-                images: [
-                    "https://images.unsplash.com/photo-1599643478514-4a18350db269?q=80&w=800&auto=format&fit=crop",
-                    "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop"
-                ]
-            },
-            {
-                id: 2,
-                name: "24k Pure Gold Ring",
-                material: "Gold", 
-                weight: 10, // Weight in grams
-                makingCharges: 5000, // Fixed making charges in ₹
-                category: "Rings",
-                images: [
-                    "https://images.unsplash.com/photo-1605100804763-247f67b2548e?q=80&w=800&auto=format&fit=crop",
-                    "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop",
-                    "https://images.unsplash.com/photo-1599643478514-4a18350db269?q=80&w=800&auto=format&fit=crop"
-                ]
-            },
-            {
-                id: 3,
-                name: "Pure Silver Anklet",
-                material: "Silver",
-                weight: 50, // Weight in grams
-                makingCharges: 1500, // Fixed making charges in ₹
-                category: "Anklets",
-                images: [
-                    "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=800&auto=format&fit=crop"
-                ]
-            },
-            {
-                id: 4,
-                name: "Gold Bridal Bracelet",
-                material: "Gold",
-                weight: 25, // Weight in grams
-                makingCharges: 12000,
-                category: "Bracelets",
-                images: [
-                    "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=800&auto=format&fit=crop",
-                    "https://images.unsplash.com/photo-1599643478514-4a18350db269?q=80&w=800&auto=format&fit=crop"
-                ]
+        let targetLaunchUrl = "";
+        const overlay = document.getElementById('overlay');
+        const mainWrapper = document.getElementById('main-wrapper');
+        const modalConfirm = document.getElementById('modal-confirm');
+        const modalLoading = document.getElementById('modal-loading');
+        const modalSuccess = document.getElementById('modal-success');
+
+        // Function to create a highly professional UI chime using Web Audio API
+        function playSuccessSound() {
+            try {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                const ctx = new AudioContext();
+
+                // Note 1
+                const osc1 = ctx.createOscillator();
+                const gain1 = ctx.createGain();
+                osc1.connect(gain1);
+                gain1.connect(ctx.destination);
+                osc1.type = 'sine';
+                osc1.frequency.setValueAtTime(880, ctx.currentTime); // A5 note
+                gain1.gain.setValueAtTime(0, ctx.currentTime);
+                gain1.gain.linearRampToValueAtTime(0.3, ctx.currentTime + 0.05);
+                gain1.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.4);
+                osc1.start(ctx.currentTime);
+                osc1.stop(ctx.currentTime + 0.4);
+
+                // Note 2 (slightly delayed higher pitch for that "Ting-Ting" effect)
+                const osc2 = ctx.createOscillator();
+                const gain2 = ctx.createGain();
+                osc2.connect(gain2);
+                gain2.connect(ctx.destination);
+                osc2.type = 'sine';
+                osc2.frequency.setValueAtTime(1108.73, ctx.currentTime + 0.1); // C#6 note
+                gain2.gain.setValueAtTime(0, ctx.currentTime + 0.1);
+                gain2.gain.linearRampToValueAtTime(0.3, ctx.currentTime + 0.15);
+                gain2.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 1.0);
+                osc2.start(ctx.currentTime + 0.1);
+                osc2.stop(ctx.currentTime + 1.0);
+            } catch(e) {
+                console.log("Web Audio API not supported on this browser.");
             }
-        ];
-
-        /* =========================================
-           FUNCTIONALITY SCRIPT
-           ========================================= */
-        const productGrid = document.getElementById('product-grid');
-        const modal = document.getElementById('imageModal');
-        const mainModalImage = document.getElementById('mainModalImage');
-        const modalImageWrapper = document.getElementById('modalImageWrapper');
-        const modalThumbnails = document.getElementById('modalThumbnails');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalPrice = document.getElementById('modalPrice');
-        const modalWeight = document.getElementById('modalWeight');
-
-        // Initial Rates
-        let currentGoldRate = parseFloat(document.getElementById('goldRateInput').value) || 0;
-        let currentSilverRate = parseFloat(document.getElementById('silverRateInput').value) || 0;
-
-        // Function to calculate dynamic price based on material
-        function calculateFinalPrice(product) {
-            if (product.material === "Gold" && product.weight) {
-                return (currentGoldRate * product.weight) + (product.makingCharges || 0);
-            } else if (product.material === "Silver" && product.weight) {
-                return (currentSilverRate * product.weight) + (product.makingCharges || 0);
-            }
-            return product.basePrice || 0; // Fallback to base price for diamonds/others
         }
 
-        // Format number to Indian Rupee
-        function formatRupee(amount) {
-            return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(amount);
+        function hideAllModals() {
+            modalConfirm.classList.remove('active');
+            modalLoading.classList.remove('active');
+            modalSuccess.classList.remove('active');
         }
 
-        // Update Rates on Input Change
-        function updateRates() {
-            currentGoldRate = parseFloat(document.getElementById('goldRateInput').value) || 0;
-            currentSilverRate = parseFloat(document.getElementById('silverRateInput').value) || 0;
-            renderProducts(); // Re-render to show updated prices instantly
+        // 1. Click Launch -> Show Confirm Box
+        function initiateLaunch(url) {
+            targetLaunchUrl = url;
+            hideAllModals();
+            mainWrapper.classList.add('blurred');
+            overlay.classList.add('active');
+            modalConfirm.classList.add('active');
         }
 
-        // Render Products
-        function renderProducts() {
-            productGrid.innerHTML = '';
-            products.forEach(product => {
-                const finalPrice = calculateFinalPrice(product);
-                const priceFormatted = formatRupee(finalPrice);
-                const imageCountText = product.images.length > 1 ? `<div class="image-indicator">+${product.images.length - 1} Images</div>` : '';
-                const weightText = product.weight ? `${product.weight}g` : 'Premium';
+        // 2. Click No -> Cancel Process
+        function cancelLaunch() {
+            overlay.classList.remove('active');
+            mainWrapper.classList.remove('blurred');
+            targetLaunchUrl = "";
+        }
+
+        // 3. Click Yes -> Loading for 4s -> Success Tick & Sound -> Redirect
+        function confirmLaunch() {
+            hideAllModals();
+            modalLoading.classList.add('active');
+
+            // Wait 4 Seconds exactly as requested
+            setTimeout(() => {
+                hideAllModals();
+                modalSuccess.classList.add('active');
                 
-                const card = document.createElement('div');
-                card.className = 'product-card';
-                card.onclick = () => openModal(product, priceFormatted);
-                
-                card.innerHTML = `
-                    <div class="product-image-container">
-                        <img src="${product.images[0]}" alt="${product.name}" class="product-image">
-                        ${imageCountText}
-                    </div>
-                    <div class="product-info">
-                        <div class="product-category">${product.category} | ${product.material}</div>
-                        <h3 class="product-title">${product.name}</h3>
-                        <div class="product-weight">Net Weight: ${weightText}</div>
-                        <div class="product-price">${priceFormatted}</div>
-                    </div>
-                `;
-                productGrid.appendChild(card);
-            });
-        }
+                // Play sound precisely when tick appears
+                playSuccessSound();
 
-        // Open Modal to view multiple images
-        function openModal(product, priceFormatted) {
-            modal.style.display = "flex";
-            mainModalImage.src = product.images[0];
-            modalTitle.innerText = product.name;
-            modalPrice.innerText = priceFormatted;
-            modalWeight.innerText = product.weight ? `Material: ${product.material} | Weight: ${product.weight}g | Making: ₹${product.makingCharges}` : `Material: ${product.material}`;
-            
-            // Reset Zoom
-            mainModalImage.style.transform = "scale(1)";
-            mainModalImage.style.transformOrigin = "center center";
+                // Wait 1.5 seconds for the user to see the cool tick animation before redirecting
+                setTimeout(() => {
+                    window.location.href = targetLaunchUrl;
+                }, 1500);
 
-            modalThumbnails.innerHTML = '';
-            
-            if(product.images.length > 1) {
-                product.images.forEach((imgSrc, index) => {
-                    const thumb = document.createElement('img');
-                    thumb.src = imgSrc;
-                    if(index === 0) thumb.classList.add('active');
-                    
-                    thumb.onclick = (e) => { 
-                        mainModalImage.src = imgSrc; 
-                        // Manage active class
-                        document.querySelectorAll('.modal-thumbnails img').forEach(i => i.classList.remove('active'));
-                        e.target.classList.add('active');
-                        // Reset zoom when image changes
-                        mainModalImage.style.transform = "scale(1)";
-                    };
-                    modalThumbnails.appendChild(thumb);
-                });
-            }
-        }
-
-        // --- IMAGE ZOOM FUNCTIONALITY ---
-        modalImageWrapper.addEventListener("mousemove", function(e) {
-            const width = modalImageWrapper.offsetWidth;
-            const height = modalImageWrapper.offsetHeight;
-            const mouseX = e.offsetX;
-            const mouseY = e.offsetY;
-            
-            // Calculate origin percentage
-            const bgPosX = (mouseX / width) * 100;
-            const bgPosY = (mouseY / height) * 100;
-            
-            mainModalImage.style.transformOrigin = `${bgPosX}% ${bgPosY}%`;
-            mainModalImage.style.transform = "scale(2)"; // Adjust this value for more/less zoom
-        });
-
-        modalImageWrapper.addEventListener("mouseleave", function() {
-            mainModalImage.style.transformOrigin = "center center";
-            mainModalImage.style.transform = "scale(1)";
-        });
-
-        // Close Modal
-        function closeModal() {
-            modal.style.display = "none";
-        }
-
-        // Initialize Webpage
-        renderProducts();
-
-        // Close modal on clicking outside the image
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                closeModal();
-            }
+            }, 4000);
         }
     </script>
 </body>
